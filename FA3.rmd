@@ -1,0 +1,44 @@
+---
+title: "Fa3"
+author: "Hermosada, J. (https://github.com/diousoix/Probability-Probability-Distribution-FAs.git)"
+date: "September 7, 2026"
+output: pdf_document
+---
+```{r}
+supplied_images <- c(0.15, 0.20, 0.25, 0.40)
+relevant_images <- c(0.50, 0.60, 0.80, 0.85)
+probability <- supplied_images * relevant_images
+probability
+overall_relevant <- sum(probability)
+overall_relevant * 100
+```
+
+```{r}
+#Tossing a coin twice
+sample_space <- c("HH", "HT", "TH", "TT")
+#Events
+E1 <- c("HH", "TT")
+E2 <- c("HH", "HT")
+E3 <- c("TH", "HH")
+#individual probabilities
+p_E1 <- length(E1) / length(sample_space)
+p_E2 <- length(E2) / length(sample_space)
+p_E3 <- length(E3) / length(sample_space)
+#overlapping outcomes
+E1_and_E2 <- intersect(E1, E2)
+E2_and_E3 <- intersect(E2, E3)
+E1_and_E3 <- intersect(E1, E3)
+#combine
+p_E1_and_E2 <- length(E1_and_E2) / length(sample_space)
+p_E2_and_E3 <- length(E2_and_E3) / length(sample_space)
+p_E1_and_E3 <- length(E1_and_E3) / length(sample_space)
+#pairwise independence
+p_E1_and_E2 == (p_E1 * p_E2)
+p_E2_and_E3 == (p_E2 * p_E3)
+p_E1_and_E3 == (p_E1 * p_E3)
+#mutual independece
+E1_and_E2_and_E3 <- intersect(E1_and_E2, E3)
+p_all_three <- length(E1_and_E2_and_E3) / length(sample_space)
+p_all_three == (p_E1 * p_E2 * p_E3)
+```
+
