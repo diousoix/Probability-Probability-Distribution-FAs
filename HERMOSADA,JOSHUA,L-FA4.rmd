@@ -1,0 +1,51 @@
+---
+title: FA4
+author: Joshua Hermosada, https://github.com/diousoix/Probability-Probability-Distribution-FAs.git
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+Item #2
+```{r}
+zero <- 0.70
+one <- 1 - zero
+
+received_zero_given_zero <- 0.95
+received_one_given_one <- 0.75
+
+given_zero_received_one <- 1 - received_zero_given_zero
+given_one_received_zero <- 1 - received_one_given_one
+
+one_is_received <- (zero * given_zero_received_one) + (one * received_one_given_one)
+one_is_received
+
+transmitted_one_received_one <- (one * received_one_given_one) / one_is_received
+transmitted_one_received_one
+```
+
+Item #7
+```{r}
+jane <- 0.10
+amy <- 0.30
+ava <- 0.60
+
+jane_error <- 0.08
+amy_error <- 0.05
+ava_error <- 0.01
+
+everybody_error <- (jane * jane_error) + (amy * amy_error) + (ava * ava_error)
+everybody_error
+
+is_it_jane <- (jane * jane_error) / everybody_error
+is_it_jane
+
+is_it_amy <- (amy * amy_error) / everybody_error
+is_it_amy
+
+is_it_ava <- (ava * ava_error) / everybody_error
+is_it_ava
+```
+
+After a thorough investigation, it has been determined that Amy would most likely be the person to have written the program error with a probability of 51.72%
+
+
+
